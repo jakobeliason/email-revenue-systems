@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Email Revenue Systems — Email marketing that actually makes money</title>
+<meta name="description" content="Email Revenue Systems — we build, manage, and optimize email systems for small businesses, turning your existing leads and customers into predictable, recurring revenue." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<!-- Calendly widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          serif: ['Fraunces', 'ui-serif', 'Georgia'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          paper: '#F4EEDC',
+          paper2: '#EBE3CB',
+          ivory: '#FFF8E8',
+          ink: '#1A1410',
+          inkSoft: '#4A3D30',
+          teal: '#00B2A9',
+          tealDeep: '#008A83',
+          tealSoft: '#B5E5E1',
+          red: '#E43C40',
+          redDeep: '#C12D31',
+          brown: '#BC7844',
+          brownDeep: '#9B5F33',
+          mustard: '#00B2A9',
+          mustardDeep: '#008A83',
+          brick: '#E43C40',
+          brickDeep: '#C12D31',
+          line: '#D9CDB0',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    font-feature-settings: "ss01", "cv11";
+    background-color: #F4EEDC;
+    background-image:
+      radial-gradient(rgba(26,20,16,0.045) 1px, transparent 1px),
+      radial-gradient(rgba(26,20,16,0.025) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+  }
+  .font-serif { font-variation-settings: "SOFT" 50, "WONK" 0; }
+  .display { font-variation-settings: "SOFT" 80, "WONK" 1; letter-spacing: -0.02em; }
+
+  .label-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .tm {
+    font-size: 0.45em;
+    vertical-align: super;
+    letter-spacing: 0.05em;
+    margin-left: 1px;
+    color: #BC7844;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .underline-squiggle {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 8 Q 30 2, 60 7 T 120 7 T 198 5' stroke='%23E43C40' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 12px;
+    padding-bottom: 8px;
+  }
+
+  .check { display: flex; align-items: baseline; gap: 10px; }
+  .check::before {
+    content: "◆";
+    color: #00B2A9;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1.5px solid currentColor;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .stamp::before {
+    content: "★";
+    color: #BC7844;
+  }
+
+  .diamond-rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #BC7844;
+  }
+  .diamond-rule::before, .diamond-rule::after {
+    content: "";
+    height: 1px;
+    background: currentColor;
+    flex: 1;
+    opacity: 0.4;
+  }
+
+  .field-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #D9CDB0;
+    background: #FFF8E8;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #1A1410;
+    transition: all 0.15s ease;
+  }
+  .field-input:focus {
+    outline: none;
+    border-color: #00B2A9;
+    box-shadow: 0 0 0 4px rgba(0, 178, 169, 0.22);
+  }
+  .field-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #4A3D30;
+    margin-bottom: 6px;
+  }
+
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+    font-weight: 900;
+    font-style: italic;
+    color: #00B2A9;
+    line-height: 0.85;
+  }
+
+  .big-num {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+
+  .wonk-tilt-l { transform: rotate(-0.4deg); }
+  .wonk-tilt-r { transform: rotate(0.4deg); }
+
+  /* form step transitions */
+  .form-step { display: none; }
+  .form-step.is-active { display: block; }
+
+  /* progress dots */
+  .step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #D9CDB0;
+    border: 1.5px solid #1A1410;
+    transition: all 0.2s ease;
+  }
+  .step-dot.is-active {
+    background: #00B2A9;
+    transform: scale(1.3);
+  }
+  .step-dot.is-done {
+    background: #1A1410;
+  }
+
+  /* System map node */
+  .sys-node {
+    position: relative;
+    background: #FFF8E8;
+    border: 2px solid #1A1410;
+    border-radius: 12px;
+    padding: 14px 14px 12px;
+    box-shadow: 3px 3px 0 0 #1A1410;
+  }
+
+  /* Pricing system row */
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px dashed #D9CDB0;
+  }
+  .price-row:last-child { border-bottom: none; }
+
+  /* Connecting tree lines for system map (decorative) */
+  .tree-trunk {
+    position: relative;
+  }
+  .tree-trunk::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 28px;
+    background: #1A1410;
+    transform: translateX(-50%);
+  }
+
+  /* FAQ accordion items */
+  .faq-item {
+    border-top: 2px solid #1A1410;
+    padding: 22px 4px;
+  }
+  .faq-item:last-child {
+    border-bottom: 2px solid #1A1410;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: #1A1410;
+    font-variation-settings: "WONK" 1, "SOFT" 80;
+    letter-spacing: -0.01em;
+  }
+  @media (min-width: 768px) {
+    .faq-item summary { font-size: 1.55rem; }
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::marker { content: ''; }
+  .faq-item summary::after {
+    content: '+';
+    flex-shrink: 0;
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #00B2A9;
+    font-style: italic;
+    line-height: 0.7;
+    transition: transform 0.2s ease;
+    font-variation-settings: "WONK" 1;
+  }
+  .faq-item[open] summary::after {
+    content: '×';
+    color: #E43C40;
+  }
+  .faq-item .faq-answer {
+    margin-top: 14px;
+    color: #4A3D30;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+</style>
+</head>
+<body class="text-ink font-sans antialiased">
+
+<!-- NAV -->
+<header class="border-b-2 border-ink/10 bg-paper/90 backdrop-blur sticky top-0 z-30">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-baseline gap-2.5">
+      <span class="font-serif font-black text-2xl tracking-tight">Email</span>
+      <span class="label-mono text-brownDeep">Revenue Systems</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-ink/70">
+      <a href="#system" class="hover:text-ink transition">The System</a>
+      <a href="#build" class="hover:text-ink transition">How It Works</a>
+      <a href="#pricing" class="hover:text-ink transition">Pricing</a>
+      <a href="#faq" class="hover:text-ink transition">FAQ</a>
+    </nav>
+    <a href="#audit" class="hidden md:inline-flex items-center gap-2 bg-ink text-paper text-sm font-medium px-4 py-2 rounded-full hover:bg-red transition">
+      Book A Call →
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden border-b-2 border-ink/10">
+  <div aria-hidden="true" class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-teal/30 blur-3xl pointer-events-none"></div>
+  <div aria-hidden="true" class="absolute top-40 -left-32 w-80 h-80 rounded-full bg-red/15 blur-3xl pointer-events-none"></div>
+  <svg aria-hidden="true" class="absolute top-8 right-8 w-32 h-32 text-teal/40 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+    <g>
+      <rect x="48" y="0" width="4" height="4" transform="rotate(45 50 2)"/>
+      <rect x="48" y="20" width="4" height="4" transform="rotate(45 50 22)"/>
+      <rect x="48" y="40" width="4" height="4" transform="rotate(45 50 42)"/>
+      <rect x="48" y="60" width="4" height="4" transform="rotate(45 50 62)"/>
+      <rect x="48" y="80" width="4" height="4" transform="rotate(45 50 82)"/>
+      <rect x="28" y="0" width="4" height="4" transform="rotate(45 30 2)"/>
+      <rect x="28" y="20" width="4" height="4" transform="rotate(45 30 22)"/>
+      <rect x="28" y="40" width="4" height="4" transform="rotate(45 30 42)"/>
+      <rect x="68" y="20" width="4" height="4" transform="rotate(45 70 22)"/>
+      <rect x="68" y="40" width="4" height="4" transform="rotate(45 70 42)"/>
+      <rect x="68" y="60" width="4" height="4" transform="rotate(45 70 62)"/>
+    </g>
+  </svg>
+
+  <div class="relative max-w-7xl mx-auto px-6 pt-14 md:pt-20 pb-20 md:pb-28 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start" id="audit">
+    <!-- LEFT: copy -->
+    <div class="lg:col-span-7">
+      <h1 class="font-serif display text-5xl md:text-6xl lg:text-7xl leading-[0.98] font-bold">
+        Email marketing
+        <span class="block">that <span class="italic font-light">actually</span></span>
+        <span class="text-red underline-squiggle">makes money.</span>
+      </h1>
+
+      <p class="mt-8 text-lg md:text-xl text-inkSoft leading-relaxed max-w-xl">
+        We build and manage email systems for small businesses that drive <strong class="font-bold text-ink">repeat business</strong>, <strong class="font-bold text-ink">referrals</strong>, <strong class="font-bold text-ink">reviews</strong>, and <strong class="font-bold text-ink">monthly revenue</strong>.
+      </p>
+
+      <!-- inline price stamp -->
+      <div class="mt-8 inline-flex flex-wrap items-center gap-3 bg-ink text-paper rounded-full pl-2 pr-5 py-2 shadow-[3px_3px_0_0_#E43C40]">
+        <span class="bg-teal text-ink label-mono px-3 py-1 rounded-full">$497/mo</span>
+        <span class="label-mono text-paper/85">All-in · 6-month minimum</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: multi-step form -->
+    <div class="lg:col-span-5">
+      <div class="relative">
+        <div aria-hidden="true" class="absolute -top-3 left-10 w-24 h-7 bg-teal/60 -rotate-3 rounded-sm shadow-sm"></div>
+        <div aria-hidden="true" class="absolute -top-3 right-10 w-16 h-7 bg-red/40 rotate-2 rounded-sm shadow-sm"></div>
+
+        <div class="relative bg-ivory border-2 border-ink rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_0_#1A1410]">
+          <!-- header (shared) -->
+          <div class="flex items-center justify-between gap-4">
+            <p class="label-mono text-tealDeep">Book A Call</p>
+            <span class="label-mono text-ink/40">No&nbsp;cost · No&nbsp;catch</span>
+          </div>
+
+          <!-- progress dots -->
+          <div class="mt-3 flex items-center gap-2" id="progress-dots">
+            <span class="step-dot is-active" data-dot="1"></span>
+            <span class="step-dot" data-dot="2"></span>
+            <span class="step-dot" data-dot="3"></span>
+          </div>
+
+          <!-- STEP 1 — basic info -->
+          <form class="form-step is-active" id="form-step-1">
+            <h2 class="mt-3 font-serif display text-3xl md:text-4xl font-bold leading-tight">
+              Let's <span class="italic">talk.</span>
+            </h2>
+            <p class="mt-2 text-sm text-inkSoft">
+              30 seconds to tell us who you are. We'll show you what your customer list could be doing for you.
+            </p>
+
+            <div class="mt-5 grid grid-cols-2 gap-4">
+              <div class="col-span-2 sm:col-span-1">
+                <label class="field-label" for="f-name">Your name</label>
+                <input class="field-input" id="f-name" name="name" type="text" required placeholder="Jane Smith" />
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label class="field-label" for="f-company">Company name</label>
+                <input class="field-input" id="f-company" name="company" type="text" required placeholder="Smith &amp; Co." />
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label class="field-label" for="f-email">Email</label>
+                <input class="field-input" id="f-email" name="email" type="email" required placeholder="you@business.com" />
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <label class="field-label" for="f-phone">Phone</label>
+                <input class="field-input" id="f-phone" name="phone" type="tel" required placeholder="(901) 555-0100" />
+              </div>
+            </div>
+
+            <button type="submit" class="mt-6 w-full inline-flex items-center justify-center gap-3 bg-red hover:bg-redDeep text-paper font-bold text-lg py-4 rounded-xl transition shadow-[4px_4px_0_0_#1A1410] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_0_#1A1410]">
+              Book A Call →
+            </button>
+          </form>
+
+          <!-- STEP 2 — qualifying -->
+          <form class="form-step" id="form-step-2">
+            <h2 class="mt-3 font-serif display text-3xl md:text-4xl font-bold leading-tight">
+              A few more <span class="italic">quick</span> questions.
+            </h2>
+            <p class="mt-2 text-sm text-inkSoft">
+              This helps us show up to the call already knowing your situation.
+            </p>
+
+            <div class="mt-5 space-y-4">
+              <div>
+                <label class="field-label" for="f-list">Roughly how many customers / leads in your database?</label>
+                <select class="field-input" id="f-list" name="list" required>
+                  <option value="" disabled selected>Choose one…</option>
+                  <option>Under 500</option>
+                  <option>500 – 2,000</option>
+                  <option>2,000 – 10,000</option>
+                  <option>10,000+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="f-frequency">How often do you currently email your list?</label>
+                <select class="field-input" id="f-frequency" name="frequency" required>
+                  <option value="" disabled selected>Choose one…</option>
+                  <option>Never</option>
+                  <option>Rarely / inconsistently</option>
+                  <option>Once a month</option>
+                  <option>A few times a month</option>
+                  <option>Weekly or more</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="f-source">How did you hear about us?</label>
+                <textarea class="field-input" id="f-source" name="source" rows="2" placeholder="Word of mouth, search, a friend, etc." required></textarea>
+              </div>
+            </div>
+
+            <div class="mt-6 flex gap-3">
+              <button type="button" class="px-4 py-3 rounded-xl border-2 border-ink/15 hover:bg-ink/5 transition label-mono text-inkSoft" data-back-to="1">← Back</button>
+              <button type="submit" class="flex-1 inline-flex items-center justify-center gap-3 bg-red hover:bg-redDeep text-paper font-bold text-lg py-4 rounded-xl transition shadow-[4px_4px_0_0_#1A1410] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_0_#1A1410]">
+                Pick a time →
+              </button>
+            </div>
+          </form>
+
+          <!-- STEP 3 — Calendly -->
+          <div class="form-step" id="form-step-3">
+            <h2 class="mt-3 font-serif display text-2xl md:text-3xl font-bold leading-tight">
+              Pick a time that works.
+            </h2>
+            <p class="mt-2 text-sm text-inkSoft">
+              We'll send a confirmation and a short pre-call note so you know what to expect.
+            </p>
+
+            <!-- Calendly inline widget -->
+            <div id="calendly-target" class="calendly-inline-widget mt-5 -mx-2 sm:-mx-3 rounded-xl overflow-hidden border-2 border-ink" style="min-width:300px;height:680px;"></div>
+
+            <p class="mt-4 label-mono text-inkSoft text-center">
+              Replace the placeholder Calendly URL in the script below with your real one.
+            </p>
+          </div>
+
+          <div class="mt-4 diamond-rule label-mono">Memphis · TN</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY BAR -->
+<section class="bg-teal text-paper border-y-2 border-ink relative overflow-hidden">
+  <div aria-hidden="true" class="absolute inset-y-0 left-0 w-16 bg-ink hidden md:block">
+    <div class="h-full flex items-center justify-center">
+      <span class="text-brown text-2xl">★</span>
+    </div>
+  </div>
+  <div aria-hidden="true" class="absolute inset-y-0 right-0 w-16 bg-ink hidden md:block">
+    <div class="h-full flex items-center justify-center">
+      <span class="text-brown text-2xl">★</span>
+    </div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-center">
+    <span class="label-mono text-paper"><span class="text-brown">★</span>&nbsp; $497/mo · all-in</span>
+    <span class="hidden sm:inline text-red font-bold">◆</span>
+    <span class="label-mono text-paper">Repeat-business focused</span>
+    <span class="hidden sm:inline text-red font-bold">◆</span>
+    <span class="label-mono text-paper">Email-first</span>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<section class="bg-paper2 border-b-2 border-ink/10">
+  <div class="max-w-7xl mx-auto px-6 py-14 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+    <div class="text-center md:text-left md:pr-4 md:border-r border-line">
+      <p class="big-num text-5xl md:text-6xl text-red italic">5<span class="text-2xl">–</span>7<span class="text-2xl">x</span></p>
+      <p class="mt-3 text-inkSoft text-sm leading-snug">Cost of acquiring a new customer vs. retaining one.</p>
+    </div>
+    <div class="text-center md:text-left md:px-4 md:border-r border-line">
+      <p class="big-num text-5xl md:text-6xl text-teal italic">4200<span class="text-2xl">%</span></p>
+      <p class="mt-3 text-inkSoft text-sm leading-snug">Average ROI on email — $42 back for every $1.</p>
+    </div>
+    <div class="text-center md:text-left md:px-4 md:border-r border-line">
+      <p class="big-num text-5xl md:text-6xl text-brown italic">67<span class="text-2xl">%</span></p>
+      <p class="mt-3 text-inkSoft text-sm leading-snug">More spent by repeat customers vs. first-timers.</p>
+    </div>
+    <div class="text-center md:text-left md:pl-4">
+      <p class="big-num text-5xl md:text-6xl text-teal italic">80<span class="text-2xl">%</span></p>
+      <p class="mt-3 text-inkSoft text-sm leading-snug">Of future revenue comes from existing customers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM SECTION -->
+<section class="bg-paper border-b-2 border-ink/10">
+  <div class="max-w-7xl mx-auto px-6 py-20 md:py-24">
+    <div class="max-w-3xl">
+      <p class="label-mono text-red">§ 01 · The problem</p>
+      <h2 class="mt-4 font-serif display text-4xl md:text-5xl leading-[1.02] font-bold">
+        Your customer list is your most <span class="italic">valuable</span> asset.
+        <span class="block text-red mt-2">It's probably doing nothing.</span>
+      </h2>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-7 shadow-[5px_5px_0_0_#1A1410]">
+        <span class="section-num text-6xl">A.</span>
+        <h3 class="mt-3 font-serif display text-2xl font-bold leading-tight">Lost leads go cold.</h3>
+        <p class="mt-3 text-inkSoft leading-relaxed">You worked hard to generate that lead. Follow-up slipped, they moved on, and someone else got the sale.</p>
+      </article>
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-7 shadow-[5px_5px_0_0_#1A1410]">
+        <span class="section-num text-6xl">B.</span>
+        <h3 class="mt-3 font-serif display text-2xl font-bold leading-tight">Old customers drift away.</h3>
+        <p class="mt-3 text-inkSoft leading-relaxed">They loved you. They just forgot about you. Nobody reached out, so they found someone who did.</p>
+      </article>
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-7 shadow-[5px_5px_0_0_#1A1410]">
+        <span class="section-num text-6xl">C.</span>
+        <h3 class="mt-3 font-serif display text-2xl font-bold leading-tight">Revenue stays on the table.</h3>
+        <p class="mt-3 text-inkSoft leading-relaxed">No referral asks. No repeat-purchase nudges. No monthly promotions. Just a list of people sitting in your system doing nothing.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE w/ McKinsey quote -->
+<section class="bg-paper2 border-b-2 border-ink/10">
+  <div class="max-w-7xl mx-auto px-6 py-20 md:py-24 grid md:grid-cols-12 gap-12">
+    <div class="md:col-span-7">
+      <p class="label-mono text-red">§ 02 · Why email</p>
+      <h2 class="mt-4 font-serif display text-4xl md:text-5xl leading-[1.02] font-bold">
+        Email is still the <span class="italic text-teal">highest-ROI</span> marketing channel in existence.
+      </h2>
+      <p class="mt-6 text-inkSoft text-lg leading-relaxed max-w-2xl">
+        Social media algorithms change. Ad costs rise. Word of mouth is unpredictable. Email goes directly to people who already know you, trust you, and have bought from you before.
+      </p>
+      <p class="mt-4 text-ink text-lg leading-relaxed max-w-2xl">
+        That's not a cold audience. <span class="font-serif italic font-bold">That's money waiting to be activated.</span>
+      </p>
+    </div>
+
+    <aside class="md:col-span-5 relative">
+      <div class="bg-teal text-paper border-2 border-ink rounded-2xl p-8 md:p-10 shadow-[6px_6px_0_0_#E43C40] wonk-tilt-r">
+        <div class="text-brown text-6xl font-serif italic font-black leading-none">"</div>
+        <blockquote class="mt-2 font-serif display text-2xl md:text-3xl leading-[1.15] font-bold">
+          Email is 40x more effective at acquiring customers than Facebook and Twitter combined.
+        </blockquote>
+        <div class="mt-6 diamond-rule label-mono text-paper/70">Source</div>
+        <p class="mt-3 label-mono text-ink">McKinsey &amp; Company</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- THE SYSTEM (visual map) -->
+<section id="system" class="bg-paper border-b-2 border-ink/10 relative overflow-hidden">
+  <div aria-hidden="true" class="absolute -top-32 -right-20 w-96 h-96 rounded-full bg-teal/15 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-24">
+    <div class="max-w-3xl">
+      <p class="label-mono text-red">§ 03 · The system</p>
+      <h2 class="mt-4 font-serif display text-4xl md:text-5xl leading-[1.02] font-bold">
+        Five connected systems. <span class="italic text-teal">One revenue engine.</span>
+      </h2>
+      <p class="mt-5 text-inkSoft text-lg leading-relaxed max-w-2xl">
+        A complete email system designed to increase repeat business, reviews, referrals, and customer revenue.
+      </p>
+    </div>
+
+    <!-- VISUAL MAP -->
+    <div class="mt-14">
+
+      <!-- Hub -->
+      <div class="flex justify-center">
+        <div class="relative inline-block">
+          <div aria-hidden="true" class="absolute -top-3 -left-3 w-full h-full bg-red/30 rounded-full"></div>
+          <div class="relative bg-ink text-paper rounded-full px-8 py-5 border-2 border-ink shadow-[4px_4px_0_0_#00B2A9] text-center">
+            <p class="label-mono text-teal">Central hub</p>
+            <p class="mt-1 font-serif display text-xl md:text-2xl font-bold italic">The Email Revenue System<span class="tm">™</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trunk lines (decorative) -->
+      <div class="hidden md:block relative h-12">
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M 600 0 L 600 22 L 120 22 L 120 48" stroke="#1A1410" stroke-width="2" fill="none"/>
+          <path d="M 600 22 L 360 22 L 360 48" stroke="#1A1410" stroke-width="2" fill="none"/>
+          <path d="M 600 0 L 600 48" stroke="#1A1410" stroke-width="2" fill="none"/>
+          <path d="M 600 22 L 840 22 L 840 48" stroke="#1A1410" stroke-width="2" fill="none"/>
+          <path d="M 600 22 L 1080 22 L 1080 48" stroke="#1A1410" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- 5 system tiles -->
+      <div class="mt-4 md:mt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+
+        <article class="bg-ivory border-2 border-ink rounded-2xl p-5 shadow-[4px_4px_0_0_#1A1410]">
+          <div class="flex items-baseline justify-between">
+            <span class="label-mono text-brown">i.</span>
+            <span class="font-serif italic font-black text-teal text-3xl leading-none" style="font-variation-settings:'WONK' 1;">★</span>
+          </div>
+          <h3 class="mt-3 font-serif font-bold text-lg leading-tight">The Customer Comeback System<span class="tm">™</span></h3>
+          <p class="mt-2 text-sm text-inkSoft leading-snug">Recover inactive customers automatically.</p>
+        </article>
+
+        <article class="bg-ivory border-2 border-ink rounded-2xl p-5 shadow-[4px_4px_0_0_#1A1410]">
+          <div class="flex items-baseline justify-between">
+            <span class="label-mono text-brown">ii.</span>
+            <span class="font-serif italic font-black text-brown text-3xl leading-none" style="font-variation-settings:'WONK' 1;">★</span>
+          </div>
+          <h3 class="mt-3 font-serif font-bold text-lg leading-tight">The Repeat Purchase System<span class="tm">™</span></h3>
+          <p class="mt-2 text-sm text-inkSoft leading-snug">Increase customer frequency and retention.</p>
+        </article>
+
+        <article class="bg-ivory border-2 border-ink rounded-2xl p-5 shadow-[4px_4px_0_0_#1A1410]">
+          <div class="flex items-baseline justify-between">
+            <span class="label-mono text-brown">iii.</span>
+            <span class="font-serif italic font-black text-red text-3xl leading-none" style="font-variation-settings:'WONK' 1;">★</span>
+          </div>
+          <h3 class="mt-3 font-serif font-bold text-lg leading-tight">The 5-Star Review System<span class="tm">™</span></h3>
+          <p class="mt-2 text-sm text-inkSoft leading-snug">Generate more reviews automatically.</p>
+        </article>
+
+        <article class="bg-ivory border-2 border-ink rounded-2xl p-5 shadow-[4px_4px_0_0_#1A1410]">
+          <div class="flex items-baseline justify-between">
+            <span class="label-mono text-brown">iv.</span>
+            <span class="font-serif italic font-black text-teal text-3xl leading-none" style="font-variation-settings:'WONK' 1;">★</span>
+          </div>
+          <h3 class="mt-3 font-serif font-bold text-lg leading-tight">The Referral Multiplier<span class="tm">™</span></h3>
+          <p class="mt-2 text-sm text-inkSoft leading-snug">Turn customers into referral sources.</p>
+        </article>
+
+        <article class="bg-ivory border-2 border-ink rounded-2xl p-5 shadow-[4px_4px_0_0_#E43C40]">
+          <div class="flex items-baseline justify-between">
+            <span class="label-mono text-red">v.</span>
+            <span class="font-serif italic font-black text-brown text-3xl leading-none" style="font-variation-settings:'WONK' 1;">★</span>
+          </div>
+          <h3 class="mt-3 font-serif font-bold text-lg leading-tight">The Monthly Revenue System<span class="tm">™</span></h3>
+          <p class="mt-2 text-sm text-inkSoft leading-snug">Promotions, launches, and recurring campaigns.</p>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6-MONTH BUILD -->
+<section id="build" class="bg-paper2 border-b-2 border-ink/10 relative overflow-hidden">
+  <div aria-hidden="true" class="absolute bottom-10 -left-32 w-80 h-80 rounded-full bg-red/10 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-24">
+    <div class="max-w-3xl">
+      <p class="label-mono text-red">§ 04 · The 6-month build</p>
+      <h2 class="mt-4 font-serif display text-4xl md:text-5xl leading-[1.02] font-bold">
+        One system per month. <span class="italic text-teal">Quickest wins first.</span>
+      </h2>
+      <p class="mt-5 text-inkSoft text-lg leading-relaxed max-w-2xl">
+        We don't launch everything at once — we can't measure everything at once. Each system is installed, allowed to run, measured, and optimized before the next one layers on.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-6 shadow-[5px_5px_0_0_#00B2A9]">
+        <div class="flex items-baseline justify-between">
+          <span class="label-mono text-teal">Month 01 · Quick win</span>
+          <span class="font-serif italic font-black text-teal text-4xl leading-none" style="font-variation-settings:'WONK' 1;">I.</span>
+        </div>
+        <h3 class="mt-3 font-serif display text-xl font-bold leading-tight">The Customer Comeback System<span class="tm">™</span></h3>
+        <p class="mt-1 font-serif italic text-inkSoft text-sm">Recover inactive customers automatically.</p>
+        <p class="mt-4 text-sm text-inkSoft leading-snug">We plan and install your fastest path to revenue first — recovering customers who already know you and just need a reason to come back. Launched and tested by month-end.</p>
+      </article>
+
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-6 shadow-[5px_5px_0_0_#1A1410]">
+        <div class="flex items-baseline justify-between">
+          <span class="label-mono text-brown">Month 02</span>
+          <span class="font-serif italic font-black text-brown text-4xl leading-none" style="font-variation-settings:'WONK' 1;">II.</span>
+        </div>
+        <h3 class="mt-3 font-serif display text-xl font-bold leading-tight">The Repeat Purchase System<span class="tm">™</span></h3>
+        <p class="mt-1 font-serif italic text-inkSoft text-sm">Increase customer frequency and retention.</p>
+        <p class="mt-4 text-sm text-inkSoft leading-snug">Automated nudges timed to buying behavior so your best customers come back more often — installed, launched, and tested.</p>
+      </article>
+
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-6 shadow-[5px_5px_0_0_#1A1410]">
+        <div class="flex items-baseline justify-between">
+          <span class="label-mono text-red">Month 03</span>
+          <span class="font-serif italic font-black text-red text-4xl leading-none" style="font-variation-settings:'WONK' 1;">III.</span>
+        </div>
+        <h3 class="mt-3 font-serif display text-xl font-bold leading-tight">The 5-Star Review System<span class="tm">™</span></h3>
+        <p class="mt-1 font-serif italic text-inkSoft text-sm">Generate more reviews automatically.</p>
+        <p class="mt-4 text-sm text-inkSoft leading-snug">A consistent review-generation flow without manual follow-up. By now there's enough customer volume flowing through to make it meaningful.</p>
+      </article>
+
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-6 shadow-[5px_5px_0_0_#1A1410]">
+        <div class="flex items-baseline justify-between">
+          <span class="label-mono text-teal">Month 04</span>
+          <span class="font-serif italic font-black text-teal text-4xl leading-none" style="font-variation-settings:'WONK' 1;">IV.</span>
+        </div>
+        <h3 class="mt-3 font-serif display text-xl font-bold leading-tight">The Referral Multiplier<span class="tm">™</span></h3>
+        <p class="mt-1 font-serif italic text-inkSoft text-sm">Turn customers into referral sources.</p>
+        <p class="mt-4 text-sm text-inkSoft leading-snug">Every happy customer gets an automated referral ask at the right moment. More asks at the right time = more referrals.</p>
+      </article>
+
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-6 shadow-[5px_5px_0_0_#1A1410]">
+        <div class="flex items-baseline justify-between">
+          <span class="label-mono text-brown">Month 05</span>
+          <span class="font-serif italic font-black text-brown text-4xl leading-none" style="font-variation-settings:'WONK' 1;">V.</span>
+        </div>
+        <h3 class="mt-3 font-serif display text-xl font-bold leading-tight">The Monthly Revenue System<span class="tm">™</span></h3>
+        <p class="mt-1 font-serif italic text-inkSoft text-sm">Promotions, launches, and recurring campaigns.</p>
+        <p class="mt-4 text-sm text-inkSoft leading-snug">A targeted promotion every month — the always-on layer that keeps cash flowing on top of the automations underneath. Goes live this month and continues forever.</p>
+      </article>
+
+      <article class="bg-ivory border-2 border-ink rounded-2xl p-6 shadow-[5px_5px_0_0_#E43C40]">
+        <div class="flex items-baseline justify-between">
+          <span class="label-mono text-red">Month 06 · Live</span>
+          <span class="font-serif italic font-black text-red text-4xl leading-none" style="font-variation-settings:'WONK' 1;">VI.</span>
+        </div>
+        <h3 class="mt-3 font-serif display text-xl font-bold leading-tight">Full system live.</h3>
+        <p class="mt-1 font-serif italic text-inkSoft text-sm">The complete revenue engine.</p>
+        <p class="mt-4 text-sm text-inkSoft leading-snug">Every system is installed, launched, and tested. From month seven on, our team runs the whole engine — and scales it on top with new campaigns, deeper testing, and steady growth every month. <span class="font-bold text-ink">Same team. Same $497/mo.</span></p>
+      </article>
+
+    </div>
+
+    <p class="mt-12 max-w-3xl mx-auto text-center font-serif display text-2xl md:text-3xl leading-[1.2] font-bold">
+      By month six, the full Email Revenue System<span class="tm">™</span> is running — and we know <span class="italic text-red">exactly</span> what's working and why.
+    </p>
+  </div>
+</section>
+
+<!-- WHO + ABOUT (merged) -->
+<section id="who" class="bg-paper border-b-2 border-ink/10">
+  <div class="max-w-7xl mx-auto px-6 py-20 md:py-24 grid md:grid-cols-12 gap-12 items-start">
+    <div class="md:col-span-5">
+      <p class="label-mono text-red">§ 05 · Who it's for</p>
+      <h2 class="mt-4 font-serif display text-4xl md:text-5xl leading-[1.02] font-bold">
+        For B2C brands where <span class="italic">repeat business</span> is the business — and email's been on the back burner.
+      </h2>
+      <p class="mt-6 text-inkSoft text-lg leading-relaxed">
+        If your customers come back over and over — but you're not regularly emailing them — you're leaving real money on the table. We work with small B2C businesses where customer retention materially impacts revenue.
+      </p>
+
+      <div class="mt-8 inline-flex items-center gap-3 bg-teal text-paper px-5 py-3 rounded-full border-2 border-ink shadow-[3px_3px_0_0_#1A1410] label-mono">
+        <span class="text-brown">★</span>
+        Built in Memphis, Tennessee
+        <span class="text-brown">★</span>
+      </div>
+    </div>
+
+    <div class="md:col-span-7">
+      <p class="label-mono text-inkSoft mb-5">If any of these sound familiar…</p>
+      <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-ink">
+        <li class="check">your best customers come back regularly — when they remember you</li>
+        <li class="check">your customer database has thousands of names you barely email</li>
+        <li class="check">most of your revenue depends on people coming back, not first-timers</li>
+        <li class="check">you email occasionally, but it feels like you're winging it</li>
+        <li class="check">you'd send more, but you worry about being annoying</li>
+        <li class="check">you want measurable revenue, not vanity metrics</li>
+      </ul>
+
+      <p class="mt-8 font-serif display text-xl md:text-2xl leading-[1.25] text-inkSoft">
+        If your best customer could come back more often, refer a friend, or leave you a review — Eliason Marketing builds the system that <span class="text-ink font-bold italic">makes it happen automatically.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING (stacked systems + $497) -->
+<section id="pricing" class="bg-ink text-paper border-b-2 border-ink/10 relative overflow-hidden">
+  <div aria-hidden="true" class="absolute -top-10 -right-10 text-teal/15 text-[20rem] font-serif font-black leading-none select-none pointer-events-none">★</div>
+  <div aria-hidden="true" class="absolute -bottom-20 -left-20 text-red/15 text-[20rem] font-serif font-black leading-none select-none pointer-events-none">★</div>
+
+  <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
+    <div class="max-w-3xl">
+      <p class="label-mono text-teal">§ 06 · Pricing</p>
+      <h2 class="mt-4 font-serif display text-4xl md:text-6xl leading-[1.02] font-bold">
+        All five systems. <span class="italic text-teal">One price.</span>
+      </h2>
+      <p class="mt-5 text-paper/80 text-lg leading-relaxed max-w-2xl">
+        Everything below — built, written, installed, managed, and optimized for you, every month.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+      <!-- LEFT: stacked systems list -->
+      <div class="md:col-span-7">
+        <div class="bg-paper text-ink border-2 border-paper rounded-2xl p-7 md:p-8 shadow-[6px_6px_0_0_#E43C40]">
+          <p class="label-mono text-red">What you get</p>
+          <h3 class="mt-2 font-serif display text-2xl md:text-3xl font-bold leading-tight">All 5 systems · 1 monthly price.</h3>
+
+          <div class="mt-6">
+            <div class="price-row">
+              <span class="label-mono text-brown w-8 flex-shrink-0">i.</span>
+              <div class="flex-1">
+                <p class="font-serif font-bold">The Customer Comeback System<span class="tm">™</span></p>
+                <p class="text-sm text-inkSoft">Recover inactive customers automatically.</p>
+              </div>
+            </div>
+            <div class="price-row">
+              <span class="label-mono text-brown w-8 flex-shrink-0">ii.</span>
+              <div class="flex-1">
+                <p class="font-serif font-bold">The Repeat Purchase System<span class="tm">™</span></p>
+                <p class="text-sm text-inkSoft">Increase customer frequency and retention.</p>
+              </div>
+            </div>
+            <div class="price-row">
+              <span class="label-mono text-brown w-8 flex-shrink-0">iii.</span>
+              <div class="flex-1">
+                <p class="font-serif font-bold">The 5-Star Review System<span class="tm">™</span></p>
+                <p class="text-sm text-inkSoft">Generate more reviews automatically.</p>
+              </div>
+            </div>
+            <div class="price-row">
+              <span class="label-mono text-brown w-8 flex-shrink-0">iv.</span>
+              <div class="flex-1">
+                <p class="font-serif font-bold">The Referral Multiplier<span class="tm">™</span></p>
+                <p class="text-sm text-inkSoft">Turn customers into referral sources.</p>
+              </div>
+            </div>
+            <div class="price-row">
+              <span class="label-mono text-brown w-8 flex-shrink-0">v.</span>
+              <div class="flex-1">
+                <p class="font-serif font-bold">The Monthly Revenue System<span class="tm">™</span></p>
+                <p class="text-sm text-inkSoft">Promotions, launches, and recurring campaigns.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t-2 border-ink">
+            <p class="label-mono text-inkSoft">Plus, every month:</p>
+            <ul class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-ink text-sm">
+              <li class="check">Targeted promotional campaign</li>
+              <li class="check">Performance reporting</li>
+              <li class="check">List management &amp; deliverability</li>
+              <li class="check">Continuous testing &amp; optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: big price -->
+      <div class="md:col-span-5">
+        <div class="bg-teal text-ink border-2 border-paper rounded-2xl p-8 md:p-10 shadow-[6px_6px_0_0_#E43C40] wonk-tilt-r relative">
+          <p class="label-mono">All-in pricing</p>
+          <div class="mt-2 flex items-baseline gap-3">
+            <span class="big-num text-7xl md:text-8xl italic">$497</span>
+            <span class="font-serif text-3xl">/mo</span>
+          </div>
+
+          <div class="mt-5 space-y-3">
+            <div class="flex items-baseline gap-3 pb-3 border-b border-ink/30">
+              <span class="font-serif italic font-black text-2xl">I.</span>
+              <div>
+                <p class="font-serif font-bold">Months 1–6 · The Build</p>
+                <p class="text-sm text-ink/75">One system installed each month, quickest wins first.</p>
+              </div>
+            </div>
+            <div class="flex items-baseline gap-3">
+              <span class="font-serif italic font-black text-2xl">II.</span>
+              <div>
+                <p class="font-serif font-bold">Month 7+ · The Scale</p>
+                <p class="text-sm text-ink/75">We run the whole system — and grow it on top, every month.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#audit" class="mt-7 w-full inline-flex items-center justify-center gap-3 bg-ink text-paper font-bold text-lg py-4 rounded-xl transition shadow-[4px_4px_0_0_#E43C40] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_0_#E43C40]">
+            Book A Call →
+          </a>
+
+          <p class="mt-5 label-mono text-ink/70 text-center">
+            Six-month minimum · No long contracts after that
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="mt-14">
+      <div class="relative bg-paper text-ink border-2 border-paper rounded-2xl p-8 md:p-10 shadow-[6px_6px_0_0_#00B2A9] grid md:grid-cols-12 gap-8 items-center">
+
+        <!-- Stamp / seal -->
+        <div class="md:col-span-3 flex justify-center md:justify-start">
+          <div class="relative w-40 h-40 wonk-tilt-l">
+            <div class="absolute inset-0 rounded-full border-[3px] border-red"></div>
+            <div class="absolute inset-2 rounded-full border-[1.5px] border-red"></div>
+            <div class="relative z-10 w-full h-full flex items-center justify-center text-center">
+              <div class="text-red px-4">
+                <p class="text-2xl leading-none">★</p>
+                <p class="font-serif font-black italic text-sm leading-none mt-2 tracking-widest">OUR</p>
+                <p class="font-serif font-black italic text-xl leading-none mt-2">GUARANTEE</p>
+                <p class="text-2xl leading-none mt-2">★</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promise -->
+        <div class="md:col-span-9">
+          <p class="label-mono text-red">The promise · zero risk</p>
+          <p class="mt-3 font-serif display text-2xl md:text-3xl font-bold leading-tight">
+            We'll generate more revenue than the system costs over the first 6 months <span class="italic text-red">— or we continue working for free until we do.</span>
+          </p>
+          <p class="mt-4 text-inkSoft">
+            That's the deal. If the system doesn't pay for itself in the build phase, we keep going on our dime until it does.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-paper border-b-2 border-ink/10">
+  <div class="max-w-7xl mx-auto px-6 py-20 md:py-24">
+    <div class="max-w-3xl">
+      <p class="label-mono text-red">§ 07 · FAQ</p>
+      <h2 class="mt-4 font-serif display text-4xl md:text-5xl leading-[1.02] font-bold">
+        Questions <span class="italic text-teal">most people</span> ask.
+      </h2>
+    </div>
+
+    <div class="mt-12 max-w-4xl">
+
+      <details class="faq-item">
+        <summary>How fast will I see results?</summary>
+        <p class="faq-answer">Month 1 is designed to put cash on the board fast. We start with The Customer Comeback System<span class="tm">™</span> — a quick-win campaign to customers who already know you and just need a reason to come back. Most clients see real revenue within the first 30 days.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I'm already emailing my list?</summary>
+        <p class="faq-answer">Most of our clients are — they're just doing it inconsistently. We don't replace what's working; we audit it, fix what isn't, and build the systems on top so the whole thing runs as one engine. If something is pulling its weight already, we keep it and amplify it.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I have to switch email platforms?</summary>
+        <p class="faq-answer">Probably not. We work with most major email and CRM platforms — Mailchimp, Klaviyo, ActiveCampaign, HubSpot, Constant Contact, and more. If we recommend a switch, we'll explain exactly why and handle the migration ourselves.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Who writes the emails — you or me?</summary>
+        <p class="faq-answer">We do. Strategy, copywriting, design, scheduling, sending — all included. You review and approve. The whole point is that the system runs without adding to your plate.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is $497/mo really the all-in price?</summary>
+        <p class="faq-answer">Yes. Same monthly price during the 6-month build and during ongoing scaling. No upcharge for management, no premium tiers, no surprise add-ons. One price, both phases, every month.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does the guarantee work?</summary>
+        <p class="faq-answer">If we haven't generated more revenue than the system has cost you over the first 6 months, we keep working for free until we do. That's the deal — and we put it in writing.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I cancel?</summary>
+        <p class="faq-answer">The build phase is a 6-month minimum because the system needs time to mature before it can be measured fairly. After month six, you're month-to-month. Cancel any time once the system is live — but most clients don't, because the system is generating more than it costs.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Who owns the system if we stop working together?</summary>
+        <p class="faq-answer">You do. Every system, every email, every automation lives in your account, on your platform. If we ever part ways, the entire system is yours to keep running.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA (compact band) -->
+<section class="bg-paper border-b-2 border-ink/10">
+  <div class="max-w-7xl mx-auto px-6 py-12 md:py-16 grid md:grid-cols-12 gap-6 items-center">
+    <div class="md:col-span-8">
+      <p class="label-mono text-red">§ 08 · Book A Call</p>
+      <h2 class="mt-2 font-serif display text-3xl md:text-4xl leading-[1.05] font-bold">
+        Your existing customers are worth <span class="italic text-red">more</span> than you're getting from them.
+      </h2>
+      <p class="mt-3 text-inkSoft">
+        No pressure. No pitch deck. Just a straight conversation about what's possible with the customers you already have.
+      </p>
+    </div>
+    <div class="md:col-span-4 md:text-right">
+      <a href="#audit" class="inline-flex items-center justify-center gap-3 bg-red hover:bg-redDeep text-paper px-7 py-4 rounded-xl font-bold text-lg transition shadow-[4px_4px_0_0_#1A1410] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_0_#1A1410]">
+        Book A Call →
+      </a>
+      <p class="mt-3 label-mono text-inkSoft">$497/mo all-in</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-paper2 border-t-2 border-ink/10">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6 items-start">
+    <div>
+      <a href="#top" class="flex items-baseline gap-2.5">
+        <span class="font-serif font-black text-2xl tracking-tight">Eliason</span>
+        <span class="label-mono text-brownDeep">Marketing</span>
+      </a>
+      <p class="mt-3 text-inkSoft text-sm">Email Revenue Systems for repeat-customer brands.</p>
+    </div>
+    <div>
+      <p class="label-mono text-inkSoft">Built in</p>
+      <p class="mt-1 font-serif text-xl font-bold">Memphis, Tennessee</p>
+    </div>
+    <div class="md:text-right">
+      <p class="label-mono text-inkSoft">Get in touch</p>
+      <a href="#audit" class="mt-1 inline-block font-serif italic text-xl font-bold underline-squiggle">Book A Call →</a>
+    </div>
+  </div>
+  <div class="border-t border-line/60">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 label-mono text-inkSoft text-xs">
+      <p>© <span id="yr"></span> Email Revenue Systems · All rights reserved</p>
+      <p>★ Memphis, TN ★</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Multi-step form
+  (function () {
+    const steps = {
+      1: document.getElementById('form-step-1'),
+      2: document.getElementById('form-step-2'),
+      3: document.getElementById('form-step-3'),
+    };
+    const dots = document.querySelectorAll('#progress-dots .step-dot');
+    const formData = { name: '', company: '', email: '', phone: '', list: '', frequency: '', source: '' };
+
+    function setStep(n) {
+      Object.keys(steps).forEach(k => steps[k].classList.toggle('is-active', String(n) === k));
+      dots.forEach((d, i) => {
+        d.classList.toggle('is-active', i + 1 === n);
+        d.classList.toggle('is-done', i + 1 < n);
+      });
+      // scroll the form into view in case of smaller screens
+      const card = steps[n].closest('.bg-ivory');
+      if (card && window.innerWidth < 1024) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Step 1 → Step 2
+    steps[1].addEventListener('submit', (e) => {
+      e.preventDefault();
+      formData.name = steps[1].querySelector('#f-name').value.trim();
+      formData.company = steps[1].querySelector('#f-company').value.trim();
+      formData.email = steps[1].querySelector('#f-email').value.trim();
+      formData.phone = steps[1].querySelector('#f-phone').value.trim();
+      setStep(2);
+    });
+
+    // Step 2 → Step 3 (Calendly)
+    steps[2].addEventListener('submit', (e) => {
+      e.preventDefault();
+      formData.list = steps[2].querySelector('#f-list').value;
+      formData.frequency = steps[2].querySelector('#f-frequency').value;
+      formData.source = steps[2].querySelector('#f-source').value.trim();
+      setStep(3);
+      initCalendly();
+    });
+
+    // Back button on step 2
+    steps[2].querySelector('[data-back-to]').addEventListener('click', () => setStep(1));
+
+    // Calendly inline init
+    let calendlyInited = false;
+    function initCalendly() {
+      if (calendlyInited) return;
+      calendlyInited = true;
+
+      // TODO: Replace with your real Calendly URL
+      const CALENDLY_URL = 'https://calendly.com/email-revenue-systems/book-a-call';
+
+      const tryInit = () => {
+        if (window.Calendly && document.getElementById('calendly-target')) {
+          window.Calendly.initInlineWidget({
+            url: CALENDLY_URL,
+            parentElement: document.getElementById('calendly-target'),
+            prefill: {
+              name: formData.name,
+              email: formData.email,
+              customAnswers: {
+                a1: formData.company,
+                a2: formData.phone,
+                a3: 'List size: ' + formData.list,
+                a4: 'Email frequency: ' + formData.frequency,
+                a5: 'Heard about us via: ' + formData.source,
+              }
+            }
+          });
+        } else {
+          // Calendly script may not be loaded yet — retry shortly
+          setTimeout(tryInit, 250);
+        }
+      };
+      tryInit();
+    }
+  })();
+</script>
+
+</body>
+</html>
